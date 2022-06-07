@@ -1,0 +1,144 @@
+//probleme 1
+//premiére solution
+ALGORITHM algorithm_name
+VAR
+    tab1:ARRAY_OF INTEGER[4]
+    tab2:ARRAY_OF INTEGER[4]
+    i, j: INTEGER
+    sum: INTEGER
+BEGIN
+    sum:=0
+    FOR i FROM 0 TO tab1.length
+        FOR j FROM 0 TO tab2.length
+            IF (tab1[i]==tab2[j]) THEN
+                BREAK;
+            END_IF
+            
+            IF (j==tab2.length) THEN
+                sum:= sum +tab1[i];
+            END_IF
+            
+        END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO tab2.length
+        FOR i FROM 0 TO tab1.length
+            IF (tab2[j]==tab1[i]) THEN
+                BREAK;
+            END_IF
+            
+            IF (i==tab1.length) THEN
+                sum:= sum +tab2[j];
+            END_IF
+            
+        END_FOR
+    END_FOR
+END
+
+//deuxième solution
+ALGORITHM hash
+VAR 
+    htba: HASH_TABLE<interger,interger>
+    key:interger
+    value:interger
+    i, j: INTEGER
+    count: INTEGER
+BEGIN
+    count:=1
+    FOR i FROM 0 TO htba.length
+        FOR j FROM 0 TO htba.length
+            IF (key[i]==value[j]) THEN
+                BREAK;
+            END_IF
+            
+            IF (j==value.length) THEN
+                count:= count +key[i];
+            END_IF
+            
+        END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO htba.length
+        FOR i FROM 0 TO htba.length
+            IF (value[j]==key[i]) THEN
+                BREAK;
+            END_IF
+            
+            IF (i==key.length) THEN
+                count:= count +value[j];
+            END_IF 
+        END_FOR
+    END_FOR
+END
+// fin probleme 1
+
+//probleme 2
+//premiére solution
+ALGORITHM hash
+VAR
+    tab1:ARRAY_OF INTEGER[4]
+    tab2:ARRAY_OF INTEGER[4]
+    i, j: INTEGER
+    sum: INTEGER
+BEGIN
+    sum:=0
+    FOR i FROM 0 TO tab1.length
+        FOR j FROM 0 TO tab2.length
+            IF (j==tab2.length) THEN
+                BREAK;
+            END_IF
+            IF (tab1[i]==tab2[j]) THEN
+                sum:= tab1[i] +tab2[j];
+            END_IF
+            
+        END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO tab2.length
+        FOR i FROM 0 TO tab1.length
+             IF (j==tab2.length) THEN
+                BREAK;
+            END_IF
+            IF (tab1[i]==tab2[j]) THEN
+                sum:= tab2[j] +tab1[i];
+            END_IF    
+        END_FOR
+    END_FOR
+END
+
+//deuxième solution
+ALGORITHM hash
+VAR 
+    htba: HASH_TABLE<interger,interger>
+    key:interger
+    value:interger
+    i, j: INTEGER
+    count: INTEGER
+BEGIN
+    count:=1
+    FOR i FROM 0 TO htba.length
+        FOR j FROM 0 TO htba.length
+            IF (j==value.length) THEN
+                BREAK;
+            END_IF
+            IF (key[i]==value[j]) THEN
+                count:= key[i]+value[j];
+            END_IF
+            
+        END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO htba.length
+        FOR i FROM 0 TO htba.length
+            IF (i==key.length) THEN
+                BREAK;
+            END_IF
+            IF (value[j]==key[i]) THEN
+                count:= value[j]+key[i];
+            END_IF
+            
+        END_FOR
+    END_FOR
+END
+
+// fin probleme 2
